@@ -6,7 +6,7 @@ import android.database.Cursor;
 /**
  * Created by janolaskar on 9/6/17.
  */
-public class ConversationHolder extends Holder {
+public class WoHolder extends Holder {
 
     public static final String FIELD_TITLE = "title";
     public static final String FIELD_DATE = "date";
@@ -16,6 +16,7 @@ public class ConversationHolder extends Holder {
     public static final String FIELD_CHAT_GROUP_MESSAGE = "chat_group_message";
     public static final String FIELD_FLAG = "flag";
     public static final String FIELD_UNREAD_COUNTER = "unread_counter";
+
 
     public static final String FIELD_LAST_MESSAGE = "last_message";
 
@@ -30,10 +31,10 @@ public class ConversationHolder extends Holder {
     public int unread_counter = -1;
     public String last_message = "";
 
-    public ConversationHolder() {
+    public WoHolder() {
     }
 
-    public ConversationHolder(Cursor p_cursor) {
+    public WoHolder(Cursor p_cursor) {
         clone(p_cursor);
     }
 
@@ -73,13 +74,13 @@ public class ConversationHolder extends Holder {
         return toInsertValues();
     }
 
-    public ConversationHolder(String p_title, String p_last_message, String p_date) {
+    public WoHolder(String p_title, String p_last_message, String p_date) {
         this.title = p_title;
         this.last_message = p_last_message;
         this.date = p_date;
     }
 
-    public ConversationHolder set_Id(Integer p_value) {
+    public WoHolder set_Id(Integer p_value) {
         _id = p_value == null ? -1 : p_value;
         return this;
     }

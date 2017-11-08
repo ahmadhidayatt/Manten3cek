@@ -31,7 +31,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase arg0) {
-        arg0.execSQL(ConversationDB.getCreateTableQuery());
+        arg0.execSQL(WoDB.getCreateTableQuery());
         arg0.execSQL(PersonDB.getCreateTableQuery());
         arg0.execSQL(FriendDB.getCreateTableQuery());
         arg0.execSQL(GroupDB.getCreateTableQuery());

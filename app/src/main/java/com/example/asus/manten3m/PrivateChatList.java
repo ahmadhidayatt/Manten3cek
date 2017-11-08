@@ -162,7 +162,7 @@
           new PrivateChatDB(getApplicationContext()).execQuery("SELECT *" +
                     "FROM CHAT_DB " +
                     "WHERE person = 20002 AND (person = 20001 and person = 20002)");
-    //            ConversationHolder objConv = new ConversationHolder(cholder._id+"", cholder.person_group+"", cholder.unread_counter+"");
+    //            WoHolder objConv = new WoHolder(cholder._id+"", cholder.person_group+"", cholder.unread_counter+"");
 
 
             privateChatAdapter.notifyDataSetChanged();

@@ -1,10 +1,7 @@
 package com.example.asus.manten3m;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,9 +19,9 @@ public class MainActivity extends AppCompatActivity
     public static final String TAG = "EasysoftChat";
 
     private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+
     private boolean is_in_mode_action = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,13 +104,13 @@ public class MainActivity extends AppCompatActivity
          */
 
         long insert = 0;
-        ConversationHolder cholder = new ConversationHolder();
+        WoHolder cholder = new WoHolder();
         cholder.set_Id(1);
         cholder.setPersonGroup(100);
         cholder.setChatGroupMessage(200);
         cholder.setFlag(0);
         cholder.setUnreadCounter(4);
-        ConversationDB dbs = new ConversationDB(getApplicationContext());
+        WoDB dbs = new WoDB(getApplicationContext());
         insert = dbs.insertRecord(cholder.toCommValues(), true);
 
         cholder.set_Id(2);
@@ -133,7 +130,7 @@ public class MainActivity extends AppCompatActivity
         insert1 = pdb.insertRecord(pholder.toCommValues(), true);
 
         pholder.set_Id(20002);
-        pholder.setName("Ahmad Hidayat");
+        pholder.setName("Ciara magnaimi");
         pholder.setOnline(0);
         pholder.setUpdated(1);
         insert1 = pdb.insertRecord(pholder.toCommValues(), true);
@@ -148,7 +145,7 @@ public class MainActivity extends AppCompatActivity
         long insert3 = 0;
         GroupHolder gholder = new GroupHolder();
         gholder.set_Id(300);
-        gholder.setName("EasySoft");
+        gholder.setName("Wedding 3M");
         GroupDB gdb = new GroupDB(getApplicationContext());
         insert3 = gdb.insertRecord(gholder.toCommValues(), true);
 
@@ -164,7 +161,7 @@ public class MainActivity extends AppCompatActivity
         holders.setId(200);
         holders.setPerson(20001);
         holders.setFriend(20002);
-        holders.setMessage("hai");
+        holders.setMessage("Berbagai Macam Pake yang Tersedia");
         holders.setWhen("13/Sep/2017 11:18:18");
         holders.setDelivered("13/Sep/2017");
         holders.setRead("13/Sep/2017");
@@ -177,7 +174,7 @@ public class MainActivity extends AppCompatActivity
         holderss.setId(300);
         holderss.setPerson(20001);
         holderss.setFriend(20002);
-        holderss.setMessage("Raisa ngaji yuuk...");
+        holderss.setMessage("Berbagai Macam Pake yang Tersedia");
         holderss.setWhen("13/Sep/2017 07:20:18");
         holderss.setDelivered("13/Sep/2017");
         holderss.setRead("13/Sep/2017");
@@ -187,76 +184,6 @@ public class MainActivity extends AppCompatActivity
         Log.e("MainActivity", "-------> masuk");
 
     }
-    public static final String TAG = "EasysoftChat";
-
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private boolean is_in_mode_action = false;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.BLACK);
-        setSupportActionBar(toolbar);
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        getSupportActionBar().setElevation(0);
-
-
-        DBOpenHelper.getInstance(getApplicationContext());
-        hobiku = FirebaseDatabase.getInstance().getReference().child("hobiku");
-        dummyData();
-
-
-    }
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ConversationList(), "Chats");
-        adapter.addFragment(new PersonList(), "Friends");
-        adapter.addFragment(new GroupList(), "Groups");
-        viewPager.setAdapter(adapter);
-    }
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            Log.i(TAG, "Title :" +title);
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-
-            Log.i(TAG, mFragmentTitleList.toString());
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-    }
-
 
 
 

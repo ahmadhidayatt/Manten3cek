@@ -125,56 +125,56 @@ public class GroupChatList extends AppCompatActivity implements View.OnClickList
         for (GroupChatHolder cholder : arC) {
             cholder.setImage(getResources().getDrawable(R.drawable.friends_profile));
             cholder.setMine(false);
-//            ConversationHolder objConv = new ConversationHolder(cholder._id+"", cholder.person_group+"", cholder.unread_counter+"");
+//            WoHolder objConv = new WoHolder(cholder._id+"", cholder.person_group+"", cholder.unread_counter+"");
             chatAdapter.add(cholder);
         }
 
-//        ConversationHolder objConv = new ConversationHolder("Mad Max: Fury Road", "Action & Adventure", "20.15");
+//        WoHolder objConv = new WoHolder("Mad Max: Fury Road", "Action & Adventure", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Inside Out", "Animation, Kids & Family", "20.15");
+//        objConv = new WoHolder("Inside Out", "Animation, Kids & Family", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Star Wars: Episode VII - The Force Awakens", "Action", "20.15");
+//        objConv = new WoHolder("Star Wars: Episode VII - The Force Awakens", "Action", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Shaun the Sheep", "Animation", "20.15");
+//        objConv = new WoHolder("Shaun the Sheep", "Animation", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("The Martian", "Science Fiction & Fantasy", "20.15");
+//        objConv = new WoHolder("The Martian", "Science Fiction & Fantasy", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Mission: Impossible Rogue Nation", "Action", "20.15");
+//        objConv = new WoHolder("Mission: Impossible Rogue Nation", "Action", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Up", "Animation", "20.09");
+//        objConv = new WoHolder("Up", "Animation", "20.09");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Star Trek", "Science Fiction", "20.09");
+//        objConv = new WoHolder("Star Trek", "Science Fiction", "20.09");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("The LEGO Movie", "Animation", "20.14");
+//        objConv = new WoHolder("The LEGO Movie", "Animation", "20.14");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Iron Man", "Action & Adventure", "20.08");
+//        objConv = new WoHolder("Iron Man", "Action & Adventure", "20.08");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Aliens", "Science Fiction", "19.86");
+//        objConv = new WoHolder("Aliens", "Science Fiction", "19.86");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Chicken Run", "Animation", "20.00");
+//        objConv = new WoHolder("Chicken Run", "Animation", "20.00");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Back to the Future", "Science Fiction", "19.85");
+//        objConv = new WoHolder("Back to the Future", "Science Fiction", "19.85");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Raiders of the Lost Ark", "Action & Adventure", "19.81");
+//        objConv = new WoHolder("Raiders of the Lost Ark", "Action & Adventure", "19.81");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Goldfinger", "Action & Adventure", "19.65");
+//        objConv = new WoHolder("Goldfinger", "Action & Adventure", "19.65");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Guardians of the Galaxy", "Science Fiction & Fantasy", "20.14");
+//        objConv = new WoHolder("Guardians of the Galaxy", "Science Fiction & Fantasy", "20.14");
 //        conversationList.add(objConv);
 
         chatAdapter.notifyDataSetChanged();

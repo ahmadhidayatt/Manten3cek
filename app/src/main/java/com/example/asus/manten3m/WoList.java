@@ -20,15 +20,15 @@ import java.util.List;
  * Created by janolaskar on 9/6/17.
  */
 
-public class ConversationList extends Fragment {
+public class WoList extends Fragment {
 
-    private static final String TAG = "ConversationList";
+    private static final String TAG = "WoList";
 
-    private List<ConversationHolder> conversationList = new ArrayList<>();
+    private List<WoHolder> conversationList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private ConversationAdapter conversation_adapter;
+    private WoAdapter conversation_adapter;
 
-    public ConversationList() {
+    public WoList() {
         // Required empty public constructor
     }
 
@@ -41,11 +41,11 @@ public class ConversationList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View mRootView =  inflater.inflate(R.layout.conversation_list_fragment, container, false);
+        View mRootView =  inflater.inflate(R.layout.wo_list_fragment, container, false);
         recyclerView = mRootView.findViewById(R.id.recycler_view);
 
         conversationList = new ArrayList<>();
-        conversation_adapter = new ConversationAdapter(getContext(),conversationList);
+        conversation_adapter = new WoAdapter(getContext(),conversationList);
 
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -57,13 +57,13 @@ public class ConversationList extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                ConversationHolder chat_position = conversationList.get(position);
+                WoHolder chat_position = conversationList.get(position);
 
                 if (chat_position.getUnreadCounter() != 0) {
                     Log.e(TAG, "-------> masuk");
                     ContentValues cvalues = new ContentValues();
-                    cvalues.put(ConversationHolder.FIELD_UNREAD_COUNTER, 0);
-                    new ConversationDB(getContext()).updateRecord(cvalues, ConversationHolder.FIELD__ID + " = " +chat_position._id);
+                    cvalues.put(WoHolder.FIELD_UNREAD_COUNTER, 0);
+                    new WoDB(getContext()).updateRecord(cvalues, WoHolder.FIELD__ID + " = " +chat_position._id);
                     chat_position.unread_counter = 0;
                     conversationList.set(position, chat_position);
                     conversation_adapter.notifyItemChanged(position);
@@ -88,7 +88,7 @@ public class ConversationList extends Fragment {
 
             @Override
             public void onLongClick(View view, int position) {
-                ConversationHolder chat_position = conversationList.get(position);
+                WoHolder chat_position = conversationList.get(position);
                 Toast.makeText(getActivity(), chat_position.getTitle()+" on longclick!", Toast.LENGTH_SHORT).show();
             }
         }));
@@ -97,8 +97,8 @@ public class ConversationList extends Fragment {
     }
 
     private void prepareConversationData() {
-        ArrayList<ConversationHolder> arCh = new ConversationDB(getContext()).getRecords(null);
-        for (ConversationHolder convHolder : arCh) {
+        ArrayList<WoHolder> arCh = new WoDB(getContext()).getRecords(null);
+        for (WoHolder convHolder : arCh) {
             if (convHolder.flag == DataGlobal.PRIVATE_MESSAGE) {
                 PrivateChatHolder privateChatHolder =  new PrivateChatDB(getContext()).getRecord(PrivateChatHolder.FIELD__ID + "=" + convHolder.chat_group_message);
                 convHolder.setLastMessage(privateChatHolder.messages);
@@ -121,52 +121,52 @@ public class ConversationList extends Fragment {
             conversationList.add(convHolder);
         }
 
-//        ConversationHolder objConv = new ConversationHolder("Mad Max: Fury Road", "Action & Adventure", "20.15");
+//        WoHolder objConv = new WoHolder("Mad Max: Fury Road", "Action & Adventure", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Inside Out", "Animation, Kids & Family", "20.15");
+//        objConv = new WoHolder("Inside Out", "Animation, Kids & Family", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Star Wars: Episode VII - The Force Awakens", "Action", "20.15");
+//        objConv = new WoHolder("Star Wars: Episode VII - The Force Awakens", "Action", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Shaun the Sheep", "Animation", "20.15");
+//        objConv = new WoHolder("Shaun the Sheep", "Animation", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("The Martian", "Science Fiction & Fantasy", "20.15");
+//        objConv = new WoHolder("The Martian", "Science Fiction & Fantasy", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Mission: Impossible Rogue Nation", "Action", "20.15");
+//        objConv = new WoHolder("Mission: Impossible Rogue Nation", "Action", "20.15");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Up", "Animation", "20.09");
+//        objConv = new WoHolder("Up", "Animation", "20.09");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Star Trek", "Science Fiction", "20.09");
+//        objConv = new WoHolder("Star Trek", "Science Fiction", "20.09");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("The LEGO Movie", "Animation", "20.14");
+//        objConv = new WoHolder("The LEGO Movie", "Animation", "20.14");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Iron Man", "Action & Adventure", "20.08");
+//        objConv = new WoHolder("Iron Man", "Action & Adventure", "20.08");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Aliens", "Science Fiction", "19.86");
+//        objConv = new WoHolder("Aliens", "Science Fiction", "19.86");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Chicken Run", "Animation", "20.00");
+//        objConv = new WoHolder("Chicken Run", "Animation", "20.00");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Back to the Future", "Science Fiction", "19.85");
+//        objConv = new WoHolder("Back to the Future", "Science Fiction", "19.85");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Raiders of the Lost Ark", "Action & Adventure", "19.81");
+//        objConv = new WoHolder("Raiders of the Lost Ark", "Action & Adventure", "19.81");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Goldfinger", "Action & Adventure", "19.65");
+//        objConv = new WoHolder("Goldfinger", "Action & Adventure", "19.65");
 //        conversationList.add(objConv);
 //
-//        objConv = new ConversationHolder("Guardians of the Galaxy", "Science Fiction & Fantasy", "20.14");
+//        objConv = new WoHolder("Guardians of the Galaxy", "Science Fiction & Fantasy", "20.14");
 //        conversationList.add(objConv);
 
         conversation_adapter.notifyDataSetChanged();

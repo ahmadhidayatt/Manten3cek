@@ -15,10 +15,10 @@ import java.util.List;
 /**
  * Created by janolaskar on 9/6/17.
  */
-public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapter.MyViewHolder> {
-    private static final String TAG = "ConversationAdapter";
+public class WoAdapter extends RecyclerView.Adapter<WoAdapter.MyViewHolder> {
+    private static final String TAG = "WoAdapter";
 
-    private List<ConversationHolder> conversationList;
+    private List<WoHolder> conversationList;
 
     private Context mContext;
 
@@ -41,7 +41,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
     }
 
 
-    public ConversationAdapter(Context context, List<ConversationHolder> conversationList) {
+    public WoAdapter(Context context, List<WoHolder> conversationList) {
         mContext = context;
         this.conversationList = conversationList;
     }
@@ -49,14 +49,14 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.conversation_list_row, parent, false);
+                .inflate(R.layout.wo_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        ConversationHolder conversation = conversationList.get(position);
+        WoHolder conversation = conversationList.get(position);
 
         holder.name.setText(conversation.getTitle());
         holder.last_message.setText(conversation.getLastMessage());
@@ -72,9 +72,9 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         Log.e(TAG, conversation.toCommValues()+"");
 
         if (conversation.flag == 0) {
-            holder.thumbnail.setImageResource(R.drawable.friends_profile);
+            holder.thumbnail.setImageResource(R.mipmap.logo_img1);
         } else {
-            holder.thumbnail.setImageResource(R.drawable.group_profile);
+            holder.thumbnail.setImageResource(R.mipmap.logo_img2);
         }
 
 //        Glide.with(mContext).load(R.drawable.group_profile)

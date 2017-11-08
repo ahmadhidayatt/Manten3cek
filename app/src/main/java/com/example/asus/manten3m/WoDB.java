@@ -9,37 +9,37 @@ import java.util.ArrayList;
  * Created by janolaskar on 9/10/17.
  */
 
-public class ConversationDB extends DB {
+public class WoDB extends DB {
     public static final String TABLE_NAME = "CONVERSATION_LIST";
     public static final String[] TABLE_FIELDS = new String[] {
-            ConversationHolder.FIELD__ID,
-            ConversationHolder.FIELD_PERSON_GROUP,
-            ConversationHolder.FIELD_CHAT_GROUP_MESSAGE,
-            ConversationHolder.FIELD_FLAG,
-            ConversationHolder.FIELD_UNREAD_COUNTER,
+            WoHolder.FIELD__ID,
+            WoHolder.FIELD_PERSON_GROUP,
+            WoHolder.FIELD_CHAT_GROUP_MESSAGE,
+            WoHolder.FIELD_FLAG,
+            WoHolder.FIELD_UNREAD_COUNTER,
     };
     public static final String ALTER_QUERY = "";
     public static final String CREATE_QUERY = "CREATE TABLE \""+TABLE_NAME+"\" " +
             "(\"_id\" integer PRIMARY KEY  NOT NULL " +
-            ",\""+ConversationHolder.FIELD_PERSON_GROUP+"\" integer UNIQUE" +
-            ",\""+ConversationHolder.FIELD_CHAT_GROUP_MESSAGE+"\" integer UNIQUE" +
-            ",\""+ConversationHolder.FIELD_FLAG+"\" integer" +
-            ",\""+ConversationHolder.FIELD_UNREAD_COUNTER+"\" integer)";
+            ",\""+ WoHolder.FIELD_PERSON_GROUP+"\" integer UNIQUE" +
+            ",\""+ WoHolder.FIELD_CHAT_GROUP_MESSAGE+"\" integer UNIQUE" +
+            ",\""+ WoHolder.FIELD_FLAG+"\" integer" +
+            ",\""+ WoHolder.FIELD_UNREAD_COUNTER+"\" integer)";
 
 
-    public ConversationDB(Context p_context) {
+    public WoDB(Context p_context) {
         super(p_context, TABLE_NAME);
     }
 
-    public synchronized ConversationHolder getFirstRecord(String p_where) {
-        ConversationHolder holder = null;
+    public synchronized WoHolder getFirstRecord(String p_where) {
+        WoHolder holder = null;
         Cursor cursor = null;
         try {
             open();
             cursor = fetch(TABLE_FIELDS, p_where, null, "1");
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
-                    holder = new ConversationHolder(cursor);
+                    holder = new WoHolder(cursor);
                 }
             }
         } catch (Exception e) {
@@ -50,15 +50,15 @@ public class ConversationDB extends DB {
         return holder;
     }
 
-    public synchronized ConversationHolder getLastRecord(String p_where) {
-        ConversationHolder holder = null;
+    public synchronized WoHolder getLastRecord(String p_where) {
+        WoHolder holder = null;
         Cursor cursor = null;
         try {
             open();
             cursor = fetch(TABLE_FIELDS, p_where, TABLE_FIELDS[0] + " DESC", "1");
             if (cursor != null) {
                 if (cursor.moveToLast()) {
-                    holder = new ConversationHolder(cursor);
+                    holder = new WoHolder(cursor);
                 }
             }
         } catch (Exception e) {
@@ -69,19 +69,19 @@ public class ConversationDB extends DB {
         return holder;
     }
 
-    public synchronized ArrayList<ConversationHolder> getRecords(String p_where) {
+    public synchronized ArrayList<WoHolder> getRecords(String p_where) {
         return getRecords(p_where, null);
     }
 
-    public synchronized ArrayList<ConversationHolder> getRecords(String p_where, String p_order) {
-        ArrayList<ConversationHolder> holders = new ArrayList<ConversationHolder>();
+    public synchronized ArrayList<WoHolder> getRecords(String p_where, String p_order) {
+        ArrayList<WoHolder> holders = new ArrayList<WoHolder>();
         Cursor cursor = null;
         try {
             open();
             cursor = fetch(TABLE_FIELDS, p_where, p_order);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
-                    holders.add(new ConversationHolder(cursor));
+                    holders.add(new WoHolder(cursor));
                 }
             }
         } catch (Exception e) {
@@ -100,7 +100,7 @@ public class ConversationDB extends DB {
             cursor = fetch(TABLE_FIELDS, p_where, p_order);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
-                    p_fetch.onFetch(new ConversationHolder(cursor));
+                    p_fetch.onFetch(new WoHolder(cursor));
                 }
             }
         } catch (Exception e) {
@@ -111,10 +111,10 @@ public class ConversationDB extends DB {
     }
 
     public interface FetchListener {
-        void onFetch(ConversationHolder person);
+        void onFetch(WoHolder person);
     }
 
     public static String getCreateTableQuery() {
-        return ConversationDB.CREATE_QUERY;
+        return WoDB.CREATE_QUERY;
     }
 }

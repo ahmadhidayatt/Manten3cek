@@ -19,22 +19,22 @@ public class PrivateChatDB extends DB{
             PrivateChatHolder.FIELD_WHEN,
             PrivateChatHolder.FIELD_DELIVERED,
             PrivateChatHolder.FIELD_READ,
-//            ConversationHolder.FIELD_USER_ACCESS,
-//            ConversationHolder.FIELD_USER_CODE,
-//            ConversationHolder.FIELD_THUMB_ID,
-//            ConversationHolder.FIELD_QUOTE,
-//            ConversationHolder.FIELD_CONNECTED,
-//            ConversationHolder.FIELD_LAST_UPDATE,
-//            ConversationHolder.FIELD_NAME,
-//            ConversationHolder.FIELD_TIMEZONE,
-//            ConversationHolder.FIELD_EX_BUDDY_STATUS,
-//            ConversationHolder.FIELD_EX_BUDDY_BLOCK,
-//            ConversationHolder.FIELD_POSITION_ID,
-//            ConversationHolder.FIELD_POSITION_DESC,
-//            ConversationHolder.FIELD_MEDIA,
-//            ConversationHolder.FIELD_CONNECTION_ID,
-//            ConversationHolder.FIELD_EMAIL,
-//            ConversationHolder.FIELD_PHONE,
+//            WoHolder.FIELD_USER_ACCESS,
+//            WoHolder.FIELD_USER_CODE,
+//            WoHolder.FIELD_THUMB_ID,
+//            WoHolder.FIELD_QUOTE,
+//            WoHolder.FIELD_CONNECTED,
+//            WoHolder.FIELD_LAST_UPDATE,
+//            WoHolder.FIELD_NAME,
+//            WoHolder.FIELD_TIMEZONE,
+//            WoHolder.FIELD_EX_BUDDY_STATUS,
+//            WoHolder.FIELD_EX_BUDDY_BLOCK,
+//            WoHolder.FIELD_POSITION_ID,
+//            WoHolder.FIELD_POSITION_DESC,
+//            WoHolder.FIELD_MEDIA,
+//            WoHolder.FIELD_CONNECTION_ID,
+//            WoHolder.FIELD_EMAIL,
+//            WoHolder.FIELD_PHONE,
     };
     public static final String ALTER_QUERY = "";
     public static final String CREATE_QUERY = "CREATE TABLE \""+TABLE_NAME+"\" " +
@@ -47,22 +47,22 @@ public class PrivateChatDB extends DB{
             ",\""+ PrivateChatHolder.FIELD_READ+"\"TEXT)";
 
 
-//            ",\""+ConversationHolder.FIELD_USER_ACCESS+"\" TEXT UNIQUE" +
-//            ",\""+ConversationHolder.FIELD_USER_CODE+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_THUMB_ID+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_QUOTE+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_CONNECTED+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_LAST_UPDATE+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_NAME+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_TIMEZONE+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_EX_BUDDY_STATUS+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_EX_BUDDY_BLOCK+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_POSITION_ID+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_POSITION_DESC+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_MEDIA+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_CONNECTION_ID+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_EMAIL+"\" TEXT" +
-//            ",\""+ConversationHolder.FIELD_PHONE+"\" TEXT)";
+//            ",\""+WoHolder.FIELD_USER_ACCESS+"\" TEXT UNIQUE" +
+//            ",\""+WoHolder.FIELD_USER_CODE+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_THUMB_ID+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_QUOTE+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_CONNECTED+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_LAST_UPDATE+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_NAME+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_TIMEZONE+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_EX_BUDDY_STATUS+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_EX_BUDDY_BLOCK+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_POSITION_ID+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_POSITION_DESC+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_MEDIA+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_CONNECTION_ID+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_EMAIL+"\" TEXT" +
+//            ",\""+WoHolder.FIELD_PHONE+"\" TEXT)";
 
     public PrivateChatDB(Context p_context) {
         super(p_context, TABLE_NAME);

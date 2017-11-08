@@ -13,11 +13,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/conversation_list_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <fragment
+            android:id="@+id/include"
+            class="com.example.asus.manten3m.WoList"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
     </ViewFlipper>
 
     <android.support.design.widget.NavigationView

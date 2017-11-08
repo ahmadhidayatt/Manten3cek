@@ -15,9 +15,9 @@ import java.util.List;
  */
 public class ConversationAdapter_backup extends RecyclerView.Adapter<ConversationAdapter_backup.MyViewHolder> {
 
-    private static final String TAG = "ConversationAdapter";
+    private static final String TAG = "WoAdapter";
 
-    private List<ConversationHolder> conversationList;
+    private List<WoHolder> conversationList;
 
     private static OnZeroLongClick mOnZeroLongClick;
     private static OnSingleLongClick mOnSingleLongClickListener;
@@ -35,21 +35,21 @@ public class ConversationAdapter_backup extends RecyclerView.Adapter<Conversatio
     }
 
 
-    public ConversationAdapter_backup(List<ConversationHolder> conversationList) {
+    public ConversationAdapter_backup(List<WoHolder> conversationList) {
         this.conversationList = conversationList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.conversation_list_row, parent, false);
+                .inflate(R.layout.wo_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        ConversationHolder conversation = conversationList.get(position);
+        WoHolder conversation = conversationList.get(position);
         holder.title.setText(conversation.getTitle());
         holder.message.setText(conversation.getLastMessage());
         holder.date.setText(conversation.getDate());
@@ -58,7 +58,7 @@ public class ConversationAdapter_backup extends RecyclerView.Adapter<Conversatio
 
             @Override
             public void onClick(View view) {
-                ConversationHolder ch = conversationList.get(position);
+                WoHolder ch = conversationList.get(position);
 //                boolean checked = ch.isChecked();
 //                if(checked) {
 //                    setChecked(ch, false);
@@ -144,8 +144,8 @@ public class ConversationAdapter_backup extends RecyclerView.Adapter<Conversatio
         void OnMultipleLongClickItem(int a, int pos, String Scope);
     }
 
-    public ArrayList<ConversationHolder> getCheckedList() {
-        ArrayList<ConversationHolder> checkedConversations = new ArrayList<>();
+    public ArrayList<WoHolder> getCheckedList() {
+        ArrayList<WoHolder> checkedConversations = new ArrayList<>();
         for (int i = 0; i < conversationList.size(); i++) {
             if (conversationList.get(i).isChecked()) {
                 checkedConversations.add(conversationList.get(i));
